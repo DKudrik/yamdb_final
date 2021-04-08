@@ -1,0 +1,14 @@
+# Ignore all
+**
+
+# Allowed
+!api_yamdb/
+!api_media/
+!users/
+!manage.py
+!requirements.txt
+
+# Override allowed
+__pychace__/
+*.py[cod]
+*$py.class
