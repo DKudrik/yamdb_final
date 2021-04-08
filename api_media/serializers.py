@@ -59,7 +59,7 @@ class TitleSerializer(serializers.ModelSerializer):
             'genre',
             'category',
             'rating',
-            )
+        )
         model = Title
 
     def create(self, validated_data):
