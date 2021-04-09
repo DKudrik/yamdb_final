@@ -9,8 +9,6 @@ services:
     container_name: postgresql
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    env_file:
-      - ./.env
     restart: always
   web:
     image: uxubisg/yamdb:v1.0
@@ -21,8 +19,6 @@ services:
       - 8000:8000
     depends_on:
       - db
-    env_file:
-      - ./.env
     volumes: 
       - ./static:/app/static
   nginx:
