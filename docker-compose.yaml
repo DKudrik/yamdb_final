@@ -13,22 +13,20 @@ services:
       - ./.env
     restart: always
   web:
-    image: uxubisg/yamdb
+    image: uxubisg/yamdb:v1.0
     container_name: web_yamdb
     restart: always
     command: gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000
-#    ports:
-#      - 8000:8000
+    ports: 
+      - 8000:8000
     depends_on:
       - db
     env_file:
       - ./.env
     volumes: 
       - ./static:/app/static
-#    links:
-#      - db:db
   nginx:
-    image: nginx1.19.9-alpine
+    image: nginx:1.19.9-alpine
     container_name: nginx
     restart: unless-stopped
     volumes:
@@ -36,5 +34,5 @@ services:
       - ./static:/var/www/django/static:ro
     ports:
       - 80:80
-    depends_on: :
+    depends_on:
       - web
