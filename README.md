@@ -11,7 +11,7 @@ Install Docker
 ### Installing
 
 To start a project:
-1. Go to a 'infra_sp2' folder
+1. Go to a 'api_yamdb_final' folder
 2. Type 'docker-compose up' in terminal
 3. Go to api_yamdb container and aplly migrations
 * To get into a container with postgres DB or with api_yamdb project open a new terminal tab 
