@@ -50,9 +50,8 @@ jobs:
     needs: dockerize
     if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
     steps:
-      - uses: actions/checkout@v2
       - name: copy deploy files
-        uses: appleboy/scp-action@master
+      - uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
