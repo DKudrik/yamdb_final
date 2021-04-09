@@ -45,23 +45,34 @@ jobs:
           push: true
           tags: uxubisg/yamdb:latest
 
-  deploy:
+deploy:
     runs-on: ubuntu-latest
     needs: dockerize
     if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
     steps:
-    - name: executing remote ssh commands to deploy
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
-        key: ${{ secrets.SSH_KEY }}
-        passphrase: ${{ secrets.PASSPHRASE }}
-        script: |
-          cd ~/code
-          sudo docker-compose pull uxubisg/yamdb
-          sudo docker-compose down
-          sudo docker-compose up --build -d
+      - uses: actions/checkout@v2
+      - name: copy deploy files
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          overwrite: true
+          source: './nginx_deploy.conf, ./docker-compose.yaml, ./.env'
+          target: 'code'
+      - name: deploy project
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          script: |
+            cd ~/code
+            sudo docker-compose pull uxubisg/yamdb
+            sudo docker-compose down
+            sudo docker-compose up --build -d
 
   send_message:
     runs-on: ubuntu-latest
