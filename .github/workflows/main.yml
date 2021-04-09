@@ -58,13 +58,13 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
-          sudo docker-compose pull web
+          sudo docker-compose pull uxubisg/yamdb
           sudo docker-compose down
           sudo docker-compose up --build -d
 
   send_message:
     runs-on: ubuntu-latest
-    needs: dockerize
+    needs: deploy
     steps:
       - name: Send message
         uses: appleboy/telegram-action@master
