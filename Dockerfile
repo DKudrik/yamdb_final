@@ -4,4 +4,5 @@ WORKDIR /code
 
 COPY . /code
 
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt && apt-get install -y gunicorn
+
