@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: uxubisg/yamdb_final:final
+          tags: uxubisg/yamdb:final
 
   deploy:
     runs-on: ubuntu-latest
