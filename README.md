@@ -1,4 +1,4 @@
-Visit the project at uxubisg.gq
+Visit the project at uxubisg.gq (or http://130.193.56.221/)
 
 
 # api_yamdb
