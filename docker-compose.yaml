@@ -18,7 +18,7 @@ services:
     depends_on:
       - db
     volumes: 
-      - ./static:/app/static
+      - static_value:/code/static/
   nginx:
     image: nginx:1.19.9-alpine
     container_name: nginx
