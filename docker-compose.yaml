@@ -15,8 +15,6 @@ services:
     image: uxubisg/yamdb:v1.0
     container_name: web_yamdb
     restart: always
-    command: gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000
-    entrypoint: prepare.sh
     depends_on:
       - db
     volumes: 
