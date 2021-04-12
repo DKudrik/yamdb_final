@@ -12,7 +12,7 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     restart: always
   web:
-    image: uxubisg/yamdb:v1.0
+    image: uxubisg/yamdb:v2.0
     container_name: web_yamdb
     restart: always
     depends_on:
