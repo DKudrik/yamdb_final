@@ -1,4 +1,4 @@
-name: CI
+name: YamDB workflow
 
 on: [push]
 
