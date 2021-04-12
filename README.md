@@ -1,8 +1,10 @@
-Visit the project at uxubisg.gq (or http://130.193.56.221/)
+https://github.com/DKudrik/yamdb_final/actions/workflows/yamdb_workflow.yaml/badge.svg
 
 
 # api_yamdb
-https://github.com/DKudrik/yamdb_final/actions/workflows/yamdb_workflow.yaml/badge.svg
+
+Visit the project at uxubisg.gq (or http://130.193.56.221/)
+
 
 YamDB is project with DB of movies, books and songs reviews
 
